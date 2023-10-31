@@ -1,10 +1,26 @@
-ho wa
-waegoh'wag
-'w
-ww 'q
+---
+ - hosts: inventory file
+   become: yes
+   become_method: sudo
+   tasks
+   - name: installing apache
+     yum:
+       name: httpd
+       state: latest
+   tasks:
+   - name: enabling httpd service
+     service:
+     name: httpd
+     enabled: yes
+   tasks
+   - name: start ntpd service, if not running
+     service:
+     name: ntpd
+     state: started, reloaded, stopped
 
-wq 
-kf
-wqoi
-modification
-
+#To uninstall a service
+  tasks:
+  - name: uninstalling apache
+    yum:
+    name: httpd
+    state: absent
